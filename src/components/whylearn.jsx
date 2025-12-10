@@ -1,0 +1,315 @@
+import React, { useState, useEffect } from 'react';
+import { Award, Users, TrendingUp, Sparkles, CheckCircle, Star, BookOpen, Target, Heart, Zap, Trophy, MessageCircle } from 'lucide-react';
+
+export default function WhyLearnSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeTab, setActiveTab] = useState('experience');
+  const [counters, setCounters] = useState({
+    students: 0,
+    successRate: 0,
+    experience: 0
+  });
+
+  useEffect(() => {
+    setIsVisible(true);
+    
+    // Animate counters
+    const duration = 2000;
+    const steps = 60;
+    const interval = duration / steps;
+    
+    let currentStep = 0;
+    const timer = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      
+      setCounters({
+        students: Math.floor(1200 * progress),
+        successRate: Math.floor(92 * progress),
+        experience: Math.floor(10 * progress)
+      });
+      
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        setCounters({ students: 1200, successRate: 92, experience: 10 });
+      }
+    }, interval);
+    
+    return () => clearInterval(timer);
+  }, []);
+
+  const stats = [
+    {
+      icon: Users,
+      value: counters.students.toLocaleString() + '+',
+      label: 'Students Trained',
+      color: '#EE7B30'
+    },
+    {
+      icon: TrendingUp,
+      value: counters.successRate + '%',
+      label: 'Success Rate',
+      color: '#2E8B57'
+    },
+    {
+      icon: Award,
+      value: counters.experience + '+',
+      label: 'Years Experience',
+      color: '#C9D1D9'
+    }
+  ];
+
+  const highlights = [
+    {
+      id: 'experience',
+      icon: Award,
+      title: 'Proven Experience',
+      description: 'Over 10 years of industry experience in remote work, digital marketing, and career coaching. I\'ve worked with Fortune 131 companies and helped hundreds transition to successful remote careers.',
+      features: [
+        'Certified Career Coach with international recognition',
+        'Former Senior Remote Work Consultant',
+        'Speaker at 10+ international conferences',
+        'Published author on remote work strategies'
+      ],
+      gradient: 'from-[#EE7B30] to-[#EE7B30]/70'
+    },
+    {
+      id: 'stories',
+      icon: Star,
+      title: 'Success Stories',
+      description: 'Our students have achieved remarkable transformations, landing roles at top companies, doubling their income, and achieving work-life balance they never thought possible.',
+      features: [
+        'Average salary increase of 3x after training',
+        '92% job placement rate within 3 months',
+        'Students now working at Google, Amazon, Meta',
+        'Over 500 documented success stories'
+      ],
+      gradient: 'from-[#2E8B57] to-[#2E8B57]/70'
+    },
+    {
+      id: 'methods',
+      icon: Sparkles,
+      title: 'Unique Teaching Methods',
+      description: 'My proprietary framework combines practical skills, mindset coaching, and real-world projects. Unlike traditional courses, you learn by doing, not just watching.',
+      features: [
+        'Learn-by-Building methodology with real clients',
+        'Weekly 1-on-1 coaching and feedback sessions',
+        'Exclusive job board with unadvertised positions',
+        'Lifetime access to community and resources'
+      ],
+      gradient: 'from-[#C9D1D9] to-[#C9D1D9]/60'
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: 'Sarah Johnson',
+      role: 'Remote Marketing Manager',
+      image: '/assets/client-3.jpeg',
+      quote: 'From zero remote experience to landing my dream job in 8 weeks. The coaching was life-changing!',
+      salary: '$75k → $120k'
+    },
+    {
+      name: 'Michael Chen',
+      role: 'Software Developer',
+      image: '/assets/client-2.jpeg',
+      quote: 'The personalized approach and real projects gave me confidence. Now I work from anywhere!',
+      salary: '$15k → $25k'
+    },
+    {
+      name: 'Amara Okafor',
+      role: 'Virtual Assistant',
+      image: '/assets/client-5.jpeg',
+      quote: 'I thought remote work wasn\'t for me. GlobalTalent proved me wrong. Forever grateful!',
+      salary: '$30k → $65k'
+    }
+  ];
+
+  return (
+    <div className="relative py-20 lg:py-32 bg-gradient-to-b from-[#0B1922] to-[#13262F] overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/3 -left-20 w-96 h-96 bg-[#EE7B30] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-1/3 -right-20 w-96 h-96 bg-[#2E8B57] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6">
+        {/* Section Header */}
+        <div className={`text-center mb-16 space-y-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="inline-flex items-center gap-2 bg-[#EE7B30]/10 border border-[#EE7B30]/30 rounded-full px-4 py-2 backdrop-blur-sm mb-4">
+            <Heart className="w-4 h-4 text-[#EE7B30]" />
+            <span className="text-[#C9D1D9] text-sm font-medium">Why Choose ClassSee</span>
+          </div>
+          
+          <h2 className="text-4xl lg:text-6xl font-bold text-white">
+            Why Learn{' '}
+            <span className="bg-gradient-to-r from-[#EE7B30] via-[#EE7B30] to-[#C9D1D9] bg-clip-text text-transparent">
+              From Me?
+            </span>
+          </h2>
+          
+          <p className="text-[#C9D1D9] text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
+            With over a decade of experience and thousands of success stories, I've developed a proven system that gets results
+          </p>
+        </div>
+
+        {/* Stats Counter */}
+        <div className={`grid md:grid-cols-3 gap-8 mb-20 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="group relative bg-gradient-to-br from-[#F9F6F1]/10 to-[#F9F6F1]/5 backdrop-blur-xl rounded-3xl p-8 border border-[#C9D1D9]/20 hover:border-[#EE7B30]/50 transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(238,123,48,0.3)]"
+            >
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-[${stat.color}] to-[${stat.color}]/70 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                  <stat.icon className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-5xl font-bold text-white group-hover:text-[#EE7B30] transition-colors duration-300">
+                  {stat.value}
+                </div>
+                <div className="text-[#C9D1D9] font-medium">
+                  {stat.label}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Tab Navigation */}
+        <div className={`flex flex-wrap justify-center gap-4 mb-12 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {highlights.map((highlight) => (
+            <button
+              key={highlight.id}
+              onClick={() => setActiveTab(highlight.id)}
+              className={`group flex items-center gap-3 px-6 py-4 rounded-full font-semibold transition-all duration-300 ${
+                activeTab === highlight.id
+                  ? 'bg-gradient-to-r from-[#EE7B30] to-[#EE7B30]/80 text-white shadow-[0_0_30px_rgba(238,123,48,0.4)] scale-105'
+                  : 'bg-[#F9F6F1]/5 text-[#C9D1D9] border border-[#C9D1D9]/20 hover:border-[#EE7B30]/50 hover:bg-[#EE7B30]/10'
+              }`}
+            >
+              <highlight.icon className="w-5 h-5" />
+              <span>{highlight.title}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Tab Content */}
+        <div className={`transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          {highlights.map((highlight) => (
+            <div
+              key={highlight.id}
+              className={`transition-all duration-500 ${
+                activeTab === highlight.id
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 absolute pointer-events-none translate-y-10'
+              }`}
+            >
+              <div className="bg-gradient-to-br from-[#F9F6F1]/10 to-[#F9F6F1]/5 backdrop-blur-xl rounded-3xl p-10 lg:p-12 border border-[#C9D1D9]/20 shadow-2xl">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                  {/* Left: Icon & Description */}
+                  <div className="space-y-6">
+                    <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${highlight.gradient} flex items-center justify-center shadow-lg`}>
+                      <highlight.icon className="w-10 h-10 text-white" />
+                    </div>
+                    
+                    <h3 className="text-3xl lg:text-4xl font-bold text-white">
+                      {highlight.title}
+                    </h3>
+                    
+                    <p className="text-[#C9D1D9] text-lg leading-relaxed">
+                      {highlight.description}
+                    </p>
+                  </div>
+
+                  {/* Right: Features */}
+                  <div className="space-y-4">
+                    {highlight.features.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start gap-4 p-4 bg-[#13262F]/50 rounded-2xl border border-[#C9D1D9]/10 hover:border-[#EE7B30]/50 transition-all duration-300 hover:scale-105"
+                        style={{ animationDelay: `${idx * 100}ms` }}
+                      >
+                        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${highlight.gradient} flex items-center justify-center flex-shrink-0`}>
+                          <CheckCircle className="w-5 h-5 text-white" />
+                        </div>
+                        <p className="text-[#F9F6F1] leading-relaxed pt-1">
+                          {feature}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Success Stories Section */}
+        <div className={`mt-20 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="text-center mb-12">
+            <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+              Real Stories, Real{' '}
+              <span className="bg-gradient-to-r from-[#EE7B30] to-[#C9D1D9] bg-clip-text text-transparent">
+                Results
+              </span>
+            </h3>
+            <p className="text-[#C9D1D9] text-lg">
+              See how our students transformed their careers
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="group bg-gradient-to-br from-[#F9F6F1]/10 to-[#F9F6F1]/5 backdrop-blur-xl rounded-3xl p-8 border border-[#C9D1D9]/20 hover:border-[#EE7B30]/50 transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(238,123,48,0.3)]"
+              >
+                {/* Avatar */}
+                <img 
+                  src={testimonial.image} 
+                  alt={testimonial.name}
+                  className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-[#C9D1D9]/20 group-hover:border-[#EE7B30] transition-colors shadow-lg"
+                />
+                
+                {/* Stars */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-[#EE7B30] text-[#EE7B30]" />
+                  ))}
+                </div>
+                
+                {/* Quote */}
+                <p className="text-[#F9F6F1] mb-6 leading-relaxed italic">
+                  "{testimonial.quote}"
+                </p>
+                
+                {/* Name & Role */}
+                <div className="mb-4">
+                  <p className="text-white font-bold">{testimonial.name}</p>
+                  <p className="text-[#C9D1D9] text-sm">{testimonial.role}</p>
+                </div>
+                
+                {/* Salary Growth */}
+                <div className="inline-flex items-center gap-2 bg-[#2E8B57]/20 border border-[#2E8B57]/30 rounded-full px-4 py-2">
+                  <TrendingUp className="w-4 h-4 text-[#2E8B57]" />
+                  <span className="text-[#2E8B57] font-semibold text-sm">{testimonial.salary}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className={`mt-16 text-center transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <button className="group relative bg-gradient-to-r from-[#EE7B30] to-[#EE7B30]/80 text-white font-bold px-10 py-5 rounded-full text-lg transition-all duration-300 hover:shadow-[0_0_40px_rgba(238,123,48,0.6)] hover:scale-105 flex items-center gap-3 mx-auto">
+            <span>Join 5,000+ Successful Students</span>
+            <Zap className="w-6 h-6 group-hover:rotate-12 transition-transform" />
+          </button>
+          <p className="text-[#C9D1D9] mt-4">
+            Start your transformation today. No experience needed.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
