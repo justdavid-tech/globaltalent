@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Users, BookOpen, GraduationCap, Briefcase, ArrowRight, CheckCircle, Sparkles, Clock, Target, Rocket } from 'lucide-react';
-
+import { Link } from 'react-router-dom';
+1
 export default function StepsGuideSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeStep, setActiveStep] = useState(1);
@@ -14,17 +15,17 @@ export default function StepsGuideSection() {
       number: 1,
       icon: Users,
       title: 'Join the Community',
-      description: 'Start by joining our vibrant WhatsApp community of 5,000+ learners. Get instant access to daily job opportunities, free resources, and connect with like-minded individuals.',
+      description: 'Start by joining our vibrant Telegram community of 5,000+ learners. Get instant access to job opportunities, free resources, and connect with like-minded individuals.',
       details: [
         'Instant access to job postings',
         'Network with successful alumni',
         'Free templates and resources',
         'Daily motivation and tips'
       ],
-      duration: '5 minutes',
+      duration: '3 minutes',
       cta: 'Join Now',
-      color: '#2E8B57',
-      gradient: 'from-[#2E8B57] to-[#2E8B57]/70'
+      color: '#EE7B30',
+      gradient: 'from-[#EE7B30] to-[#EE7B30]/70'
     },
     {
       number: 2,
@@ -34,7 +35,6 @@ export default function StepsGuideSection() {
       details: [
         'Choose your specialization',
         'Get personalized curriculum',
-        'Schedule 1-on-1 onboarding',
         'Access course materials instantly'
       ],
       duration: '15 minutes',
@@ -46,17 +46,16 @@ export default function StepsGuideSection() {
       number: 3,
       icon: GraduationCap,
       title: 'Start Learning',
-      description: 'Dive into hands-on training with weekly live sessions, real-world projects, and personalized coaching. Build your portfolio while learning at your own pace.',
+      description: 'Dive into hands-on training sessions and personalized coaching. Build your portfolio while learning at your own pace.',
       details: [
-        'Live weekly coaching sessions',
-        'Build 3-5 portfolio projects',
-        'Weekly assignments and feedback',
+        'Coaching sessions',
+        'Get direct access to coach',
         'Lifetime community access'
       ],
-      duration: '8-12 weeks',
+      duration: '2-5 days',
       cta: 'View Curriculum',
-      color: '#C9D1D9',
-      gradient: 'from-[#C9D1D9] to-[#C9D1D9]/60'
+      color: '#EE7B30',
+      gradient: 'from-[#EE7B30] to-[#EE7B30]/70'
     },
     {
       number: 4,
@@ -65,19 +64,17 @@ export default function StepsGuideSection() {
       description: 'Apply your new skills with our job placement support. Get resume reviews, interview prep, and access to our exclusive job board with unadvertised positions.',
       details: [
         'Resume and portfolio review',
-        'Mock interviews and prep',
-        'Access to exclusive job board',
-        'Ongoing career support'
+        'Access to exclusive job board'
       ],
-      duration: '1-3 months',
+      duration: '15-25 days',
       cta: 'Success Stories',
       color: '#EE7B30',
-      gradient: 'from-[#EE7B30] to-[#2E8B57]'
+      gradient: 'from-[#EE7B30] to-[#EE7B30]/70'
     }
   ];
 
   return (
-    <div className="relative py-10 lg:py-32 bg-gradient-to-b from-[#13262F] to-[#0B1922] overflow-hidden">
+    <div className="relative py-10 lg:py-12 bg-gradient-to-b from-[#13262F] to-[#0B1922] overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#EE7B30] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
@@ -249,9 +246,9 @@ export default function StepsGuideSection() {
                 <span>Join Community</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="group border-2 border-[#C9D1D9]/30 hover:border-[#EE7B30] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:bg-[#EE7B30]/10 flex items-center justify-center gap-2">
+              <Link to = "/programs" className="group border-2 border-[#C9D1D9]/30 hover:border-[#EE7B30] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:bg-[#EE7B30]/10 flex items-center justify-center gap-2">
                 <span>View All Programs</span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, MessageCircle, Briefcase, DollarSign, CheckCircle, Sparkles, Users, Clock, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function ProgramsSection() {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -8,31 +9,33 @@ export default function ProgramsSection() {
     {
       id: 1,
       icon: MessageCircle,
-      title: 'WhatsApp Community',
-      description: 'Join our vibrant community of 5,000+ learners. Get daily job opportunities, network with peers, access exclusive resources, and participate in expert Q&A sessions.',
+      title: 'Telegram Community',
+      description: 'Join our vibrant community of 2,100+ learners. Get daily job opportunities, network with peers, access exclusive resources, and participate in expert Q&A sessions.',
       highlights: [
-        { icon: Users, text: 'Network with 5,000+ members' },
+        { icon: Users, text: 'Network with 2,100+ members' },
         { icon: TrendingUp, text: 'Daily job opportunities' },
         { icon: Sparkles, text: 'Free resources & templates' }
       ],
       cta: 'Join Community',
-      link: 'https://chat.whatsapp.com/your-group-link',
-      color: '#2E8B57',
-      gradient: 'from-[#2E8B57] to-[#2E8B57]/70',
-      bgGlow: 'bg-[#2E8B57]'
+      link: 'https://t.me/your-group-link',
+      price: 'FREE',
+      color: '#EE7B30',
+      gradient: 'from-[#EE7B30] to-[#EE7B30]/70',
+      bgGlow: 'bg-[#EE7B30]',
     },
     {
       id: 2,
       icon: Briefcase,
-      title: 'Remote Job Training',
-      description: 'Master in-demand remote skills with our comprehensive 12-week program. Get live coaching, build your portfolio, and land your dream remote job with placement support.',
+      title: 'General Training',
+      description: 'Master in-demand remote skills with our comprehensive 2days program. Get live coaching, build your portfolio, and land your dream remote job with placement support.',
       highlights: [
-        { icon: Clock, text: '12-week intensive program' },
-        { icon: Users, text: 'Live coaching sessions' },
-        { icon: Briefcase, text: 'Job placement support' }
+        { icon: Clock, text: 'Telemarketing, cold calling, sales', price: '₦10,000' },
+        { icon: Users, text: 'Free resources & templates' },
+        { icon: Briefcase, text: 'Job support group', price: '₦20,000' }
       ],
       cta: 'Start Training',
       link: '/register/remote-job-training',
+      price: '₦30,000',
       color: '#EE7B30',
       gradient: 'from-[#EE7B30] to-[#EE7B30]/70',
       bgGlow: 'bg-[#EE7B30]',
@@ -40,19 +43,40 @@ export default function ProgramsSection() {
     },
     {
       id: 3,
+      icon: Briefcase,
+      title: 'Personal Mentorship',
+      description: 'Get personalized guidance and support to achieve your goals. Our expert mentors provide tailored advice, feedback, and resources to help you succeed.',
+      highlights: [
+        { icon: Users, text: 'Direct Access to coach' },
+        { icon: Briefcase, text: 'Exclusive job placement support' }
+      ],
+      cta: 'Start Training',
+      link: '/register/remote-job-training',
+      price: '₦250,000',
+      priceBreakdown: 'Objective: ₦50,000',
+      color: '#EE7B30',
+      gradient: 'from-[#EE7B30] to-[#EE7B30]/70',
+      bgGlow: 'bg-[#EE7B30]',
+      popular: false
+    },
+    {
+      id: 4,
       icon: DollarSign,
       title: 'Financial Freedom with Lilian',
-      description: 'Learn proven strategies to achieve financial independence. Master personal finance, investment strategies, and build passive income streams with expert mentorship.',
+      description: 'Master the art of Forex trading and financial independence. Get expert signals, technical analysis training, and proven strategies to build consistent profits.',
       highlights: [
-        { icon: DollarSign, text: 'Investment strategies' },
-        { icon: Users, text: '1-on-1 mentorship' },
-        { icon: TrendingUp, text: 'Passive income streams' }
+        { icon: CheckCircle, text: 'Copy and paste trading' },
+        { icon: TrendingUp, text: 'Daily signal from expert' },
+        { icon: Briefcase, text: 'Access to detailed course' },
+        { icon: DollarSign, text: 'Passive income stream' }
       ],
       cta: 'Start Journey',
+      price: '₦160,000',
       link: '/register/financial-freedom',
-      color: '#C9D1D9',
-      gradient: 'from-[#C9D1D9] to-[#C9D1D9]/50',
-      bgGlow: 'bg-[#C9D1D9]'
+      color: '#EE7B30',
+      gradient: 'from-[#EE7B30] to-[#EE7B30]/70',
+      bgGlow: 'bg-[#EE7B30]',
+      popular: false
     }
   ];
 
@@ -68,7 +92,7 @@ export default function ProgramsSection() {
   };
 
   return (
-    <div className="relative py-20 lg:py-32 bg-gradient-to-b from-[#0B1922] via-[#13262F] to-[#0B1922] overflow-hidden">
+    <div className="relative py-10 lg:py-12 bg-gradient-to-b from-[#0B1922] via-[#13262F] to-[#0B1922] overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#EE7B30] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
@@ -154,14 +178,30 @@ export default function ProgramsSection() {
                 {/* Highlights */}
                 <div className="space-y-3 mb-8">
                   {program.highlights.map((highlight, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-[#F9F6F1]">
-                      <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${program.gradient} flex items-center justify-center flex-shrink-0`}>
-                        <highlight.icon className="w-4 h-4 text-white" />
+                    <div key={idx} className="flex items-center justify-between gap-3 text-[#F9F6F1]">
+                      <div className="flex items-center gap-3">
+                        <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${program.gradient} flex items-center justify-center flex-shrink-0`}>
+                          <highlight.icon className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-sm">{highlight.text}</span>
                       </div>
-                      <span className="text-sm">{highlight.text}</span>
+                      {highlight.price && (
+                        <span className="text-sm font-semibold text-[#EE7B30] bg-[#EE7B30]/10 px-2 py-1 rounded-md">
+                          {highlight.price}
+                        </span>
+                      )}
                     </div>
                   ))}
                 </div>
+
+                {/* Pricing Section */}
+                {program.price && (
+                  <div className="mb-8 p-4 rounded-2xl bg-white/5 border border-[#C9D1D9]/10">
+                    <div className="flex items-end gap-2 mb-1">
+                      <span className="text-2xl font-bold text-white">{program.price}</span>
+                    </div>
+                  </div>
+                )}
 
                 {/* Divider */}
                 <div className="border-t border-[#C9D1D9]/10 mb-6"></div>
@@ -189,10 +229,10 @@ export default function ProgramsSection() {
           <p className="text-[#C9D1D9] text-lg mb-6">
             Not sure which program is right for you?
           </p>
-          <button className="group inline-flex items-center gap-2 bg-transparent border-2 border-[#C9D1D9]/30 hover:border-[#EE7B30] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:bg-[#EE7B30]/10">
+          <Link to ="/contact" className="group inline-flex items-center gap-2 bg-transparent border-2 border-[#C9D1D9]/30 hover:border-[#EE7B30] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:bg-[#EE7B30]/10">
             <span>Talk to Our Team</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </Link>
         </div>
       </div>
 

@@ -4,6 +4,7 @@ import Programs from "../components/programs";
 import WhyLearnSection from "../components/whylearn";
 import StepsGuideSection from "../components/stepsguide";
 import FAQ from "../components/faq";
+import Footer from "../components/footer";
 
 function Home() {
     return (
@@ -14,6 +15,7 @@ function Home() {
         <WhyLearnSection />
         <StepsGuideSection />
         <FAQ />
+        <Footer />
         </>
     )
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Award, Users, TrendingUp, Sparkles, CheckCircle, Star, BookOpen, Target, Heart, Zap, Trophy, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function WhyLearnSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,12 +27,12 @@ export default function WhyLearnSection() {
       setCounters({
         students: Math.floor(1200 * progress),
         successRate: Math.floor(92 * progress),
-        experience: Math.floor(10 * progress)
+        experience: Math.floor(6 * progress)
       });
       
       if (currentStep >= steps) {
         clearInterval(timer);
-        setCounters({ students: 1200, successRate: 92, experience: 10 });
+        setCounters({ students: 1200, successRate: 92, experience: 6 });
       }
     }, interval);
     
@@ -49,13 +50,13 @@ export default function WhyLearnSection() {
       icon: TrendingUp,
       value: counters.successRate + '%',
       label: 'Success Rate',
-      color: '#2E8B57'
+      color: '#EE7B30'
     },
     {
       icon: Award,
       value: counters.experience + '+',
       label: 'Years Experience',
-      color: '#C9D1D9'
+      color: '#EE7B30'
     }
   ];
 
@@ -64,11 +65,11 @@ export default function WhyLearnSection() {
       id: 'experience',
       icon: Award,
       title: 'Proven Experience',
-      description: 'Over 10 years of industry experience in remote work, digital marketing, and career coaching. I\'ve worked with Fortune 131 companies and helped hundreds transition to successful remote careers.',
+      description: 'Over 6 years of industry experience in remote work, digital marketing, and career coaching. I\'ve worked with various companies and individuals helping them transition to successful remote careers.',
       features: [
-        'Certified Career Coach with international recognition',
-        'Former Senior Remote Work Consultant',
-        'Speaker at 10+ international conferences',
+        'Certified Career Coach with recognition',
+        'Former Remote Work Consultant',
+        'Speaker at various conference',
         'Published author on remote work strategies'
       ],
       gradient: 'from-[#EE7B30] to-[#EE7B30]/70'
@@ -81,52 +82,28 @@ export default function WhyLearnSection() {
       features: [
         'Average salary increase of 3x after training',
         '92% job placement rate within 3 months',
-        'Students now working at Google, Amazon, Meta',
+        'Students now working as sale respresentatives, customer care, telemarketers, virtual assistants, and more ',
         'Over 500 documented success stories'
       ],
-      gradient: 'from-[#2E8B57] to-[#2E8B57]/70'
+      gradient: 'from-[#EE7B30] to-[#EE7B30]/70'
     },
     {
       id: 'methods',
       icon: Sparkles,
       title: 'Unique Teaching Methods',
-      description: 'My proprietary framework combines practical skills, mindset coaching, and real-world projects. Unlike traditional courses, you learn by doing, not just watching.',
+      description: 'My proprietary framework combines practical skills, mindset coaching. Unlike traditional courses, you learn by doing, not just watching.',
       features: [
         'Learn-by-Building methodology with real clients',
-        'Weekly 1-on-1 coaching and feedback sessions',
         'Exclusive job board with unadvertised positions',
         'Lifetime access to community and resources'
       ],
-      gradient: 'from-[#C9D1D9] to-[#C9D1D9]/60'
+      gradient: 'from-[#EE7B30] to-[#EE7B30]/70'
     }
   ];
 
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      role: 'Remote Marketing Manager',
-      image: '/assets/client-3.jpeg',
-      quote: 'From zero remote experience to landing my dream job in 8 weeks. The coaching was life-changing!',
-      salary: '$75k → $120k'
-    },
-    {
-      name: 'Michael Chen',
-      role: 'Software Developer',
-      image: '/assets/client-2.jpeg',
-      quote: 'The personalized approach and real projects gave me confidence. Now I work from anywhere!',
-      salary: '$15k → $25k'
-    },
-    {
-      name: 'Amara Okafor',
-      role: 'Virtual Assistant',
-      image: '/assets/client-5.jpeg',
-      quote: 'I thought remote work wasn\'t for me. GlobalTalent proved me wrong. Forever grateful!',
-      salary: '$30k → $65k'
-    }
-  ];
-
+  
   return (
-    <div className="relative py-20 lg:py-32 bg-gradient-to-b from-[#0B1922] to-[#13262F] overflow-hidden">
+    <div className="relative py-0 lg:py-12 bg-gradient-to-b from-[#0B1922] to-[#13262F] overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/3 -left-20 w-96 h-96 bg-[#EE7B30] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
@@ -138,7 +115,7 @@ export default function WhyLearnSection() {
         <div className={`text-center mb-16 space-y-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center gap-2 bg-[#EE7B30]/10 border border-[#EE7B30]/30 rounded-full px-4 py-2 backdrop-blur-sm mb-4">
             <Heart className="w-4 h-4 text-[#EE7B30]" />
-            <span className="text-[#C9D1D9] text-sm font-medium">Why Choose ClassSee</span>
+            <span className="text-[#C9D1D9] text-sm font-medium">Why Choose Lian work from home training</span>
           </div>
           
           <h2 className="text-4xl lg:text-6xl font-bold text-white">
@@ -244,67 +221,12 @@ export default function WhyLearnSection() {
           ))}
         </div>
 
-        {/* Success Stories Section */}
-        <div className={`mt-20 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="text-center mb-12">
-            <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              Real Stories, Real{' '}
-              <span className="bg-gradient-to-r from-[#EE7B30] to-[#C9D1D9] bg-clip-text text-transparent">
-                Results
-              </span>
-            </h3>
-            <p className="text-[#C9D1D9] text-lg">
-              See how our students transformed their careers
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="group bg-gradient-to-br from-[#F9F6F1]/10 to-[#F9F6F1]/5 backdrop-blur-xl rounded-3xl p-8 border border-[#C9D1D9]/20 hover:border-[#EE7B30]/50 transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(238,123,48,0.3)]"
-              >
-                {/* Avatar */}
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.name}
-                  className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-[#C9D1D9]/20 group-hover:border-[#EE7B30] transition-colors shadow-lg"
-                />
-                
-                {/* Stars */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-[#EE7B30] text-[#EE7B30]" />
-                  ))}
-                </div>
-                
-                {/* Quote */}
-                <p className="text-[#F9F6F1] mb-6 leading-relaxed italic">
-                  "{testimonial.quote}"
-                </p>
-                
-                {/* Name & Role */}
-                <div className="mb-4">
-                  <p className="text-white font-bold">{testimonial.name}</p>
-                  <p className="text-[#C9D1D9] text-sm">{testimonial.role}</p>
-                </div>
-                
-                {/* Salary Growth */}
-                <div className="inline-flex items-center gap-2 bg-[#2E8B57]/20 border border-[#2E8B57]/30 rounded-full px-4 py-2">
-                  <TrendingUp className="w-4 h-4 text-[#2E8B57]" />
-                  <span className="text-[#2E8B57] font-semibold text-sm">{testimonial.salary}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* CTA */}
         <div className={`mt-16 text-center transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <button className="group relative bg-gradient-to-r from-[#EE7B30] to-[#EE7B30]/80 text-white font-bold px-10 py-5 rounded-full text-lg transition-all duration-300 hover:shadow-[0_0_40px_rgba(238,123,48,0.6)] hover:scale-105 flex items-center gap-3 mx-auto">
-            <span>Join 5,000+ Successful Students</span>
+          <Link to="/join-class" className="group relative bg-gradient-to-r from-[#EE7B30] to-[#EE7B30]/80 text-white font-bold px-10 py-5 rounded-full text-lg transition-all duration-300 hover:shadow-[0_0_40px_rgba(238,123,48,0.6)] hover:scale-105 inline-flex items-center gap-3">
+            <span>Join 1,200+ Successful Students</span>
             <Zap className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-          </button>
+          </Link>
           <p className="text-[#C9D1D9] mt-4">
             Start your transformation today. No experience needed.
           </p>

@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: "How long is the training program?",
-    answer: "Our main remote job coaching program runs for 4 weeks, with live sessions and recorded materials for flexibility."
+    answer: "Our main remote job coaching program runs for 2 days, with recorded materials for flexibility."
   },
   {
     question: "Are there any hidden fees?",
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: "Do I get support after the course ends?",
-    answer: "Yes! Students have access to our private WhatsApp group and alumni network for ongoing support."
+    answer: "Yes! Students have access to our private telegram group and alumni network for ongoing support."
   }
 ];
 

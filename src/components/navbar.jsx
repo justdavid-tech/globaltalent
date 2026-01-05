@@ -10,7 +10,7 @@ function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold tracking-wide">
-          GlobalTalent <span className="text-primary-accent">Remote</span>
+          Lian work from home <span className="text-primary-accent">training</span>
         </Link>
 
         {/* Desktop Menu */}

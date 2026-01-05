@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle, Users, Award, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,15 +10,15 @@ export default function HeroSection() {
   }, []);
 
   const stats = [
-    { icon: Users, value: '5,000+', label: 'Active Learners' },
+    { icon: Users, value: '2,100+', label: 'Active Learners' },
     { icon: Award, value: '92%', label: 'Success Rate' },
     { icon: TrendingUp, value: '3x', label: 'Avg Salary Increase' }
   ];
 
   const benefits = [
     'No experience required',
-    'Expert 1-on-1 coaching',
-    'Real-world projects',
+    'Expert coaching from certified coaches',
+    'Access to useful resources',
     'Job placement support'
   ];
 
@@ -41,7 +42,7 @@ export default function HeroSection() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-[#EE7B30]/10 border border-[#EE7B30]/30 rounded-full px-4 py-2 backdrop-blur-sm">
               <div className="w-2 h-2 bg-[#2E8B57] rounded-full animate-pulse"></div>
-              <span className="text-[#C9D1D9] text-sm font-medium">Join 5,000+ successful students</span>
+              <span className="text-[#C9D1D9] text-sm font-medium">Join 2,100+ successful students</span>
             </div>
 
             {/* Main Heading */}
@@ -74,14 +75,14 @@ export default function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="group relative bg-[#EE7B30] hover:bg-[#EE7B30]/90 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(238,123,48,0.5)] hover:scale-105 flex items-center justify-center gap-2">
-                <span>Join the ClassSee Programs</span>
+              <Link to="/programs" className="group relative bg-[#EE7B30] hover:bg-[#EE7B30]/90 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(238,123,48,0.5)] hover:scale-105 flex items-center justify-center gap-2">
+                <span>Join the Lian work from home training Programs</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
               
-              <button className="group border-2 border-[#C9D1D9]/30 hover:border-[#EE7B30] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 backdrop-blur-sm hover:bg-[#EE7B30]/10">
+              <Link to="/testimonies" className="group border-2 border-[#C9D1D9]/30 hover:border-[#EE7B30] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 backdrop-blur-sm hover:bg-[#EE7B30]/10">
                 Watch Success Stories
-              </button>
+              </Link>
             </div>
 
             {/* Trust Badge */}
